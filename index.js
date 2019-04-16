@@ -14,6 +14,6 @@ exports.handler = function (event, context, callback)
   (err, res) =>
   {
     if(err) console.log(err);
-    callback(err, JSON.stringify(`All good`));
+    callback(err, JSON.stringify({ ok:err?0:1, message: err || `Posted to Slack on channel ${process.env.SLACK_CHANNEL}` }));
   });
 };
